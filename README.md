@@ -34,6 +34,9 @@
             > 將bundle.js裡的css抽離成單獨css文件
         * `browser-sync-webpack-plugin`
             > 根據相關文件改動實現瀏覽器自動刷新, 可自己定義配置
+    - use 優化
+        * `npm i -D css-minimizer-webpack-plugin`
+          > 壓縮css文件 
  2. `npm i -D tailwindcss` 
     * generate config file `npx tailwindcss init`
     * [tailwindcss document](https://tailwindcss.com/)

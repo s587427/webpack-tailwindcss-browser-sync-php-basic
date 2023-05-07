@@ -1,7 +1,8 @@
 const path = require("path")
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
 module.exports = {
   entry: "./src/index.js",
@@ -50,7 +51,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "index.css",
+      filename: "bundle.css",
     }),
     // ! 實現瀏覽器hot reload browser-sync(可搭配 devServer 或者直接使用watch 2選1,  這邊是使用watch)
     new BrowserSyncPlugin({
@@ -76,5 +77,9 @@ module.exports = {
     hot: true, // * 啟用模塊熱替換功能，這樣當模塊改變時，只會重新編譯改變的模塊，而不是重新編譯整個應用。
     compress: true, // * 啟用 gzip 壓縮。
     // watchFiles: ["src/**/*.php"], // * 监听的 PHP 文件目录
+  },
+  // * 優化這在prodcution會很有效
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
   },
 }
