@@ -2,7 +2,7 @@
 
 ## Install
 
-`npm install web`
+`npm install`
 
 ## Start
 
