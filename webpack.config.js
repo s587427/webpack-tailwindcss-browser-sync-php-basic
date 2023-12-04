@@ -6,7 +6,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
 module.exports = {
   entry: "./src/index.js",
-
+  cache: false, //每次都打包是否需要快取 false清除|true不清
   output: {
     path: path.resolve(__dirname, "dist"), // * path.resolve()  => 返回拼接的絕對路徑, __dirname => 當前檔案(模塊)的目錄路徑
     filename: "bundle.js",
